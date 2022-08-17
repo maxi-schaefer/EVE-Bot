@@ -3,10 +3,10 @@
 # EVE-Bot
 EVE is the only bot that you need in your discord server, it comes with many features such as a Giveaway System, Music System and much more
 - Released: 15.08.2022
-- [💌 Invite the bot](https://discord.com/api/oauth2/authorize?client_id=955028980770172928&permissions=8&scope=bot%20applications.commands)
+- [💌 Invite the bot](https://discord.com/api/oauth2/authorize?client_id=1009480009821474936&permissions=8&scope=bot%20applications.commands)
 <p align="center">
-	<a href="https://discord.gg/ekGSWH3kDh">
-		<img src="https://canary.discordapp.com/api/guilds/1003553726092546068/embed.png" alt="Discord server">
+	<a href="https://discord.gg/yVWygKS3XN">
+		<img src="https://canary.discordapp.com/api/guilds/999373116918743100/embed.png" alt="Discord server">
 	</a>
 </p>
 
