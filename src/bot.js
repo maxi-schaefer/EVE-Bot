@@ -1,6 +1,3 @@
-/* Sexy info */
-require('dotenv').config()
-
 /* Bot discord.js setup */
 const { Client, Collection, GatewayIntentBits, Partials } = require("discord.js");
 const { User, Channel, GuildMember, GuildScheduledEvent, Message, Reaction, ThreadMember } = Partials
@@ -40,7 +37,7 @@ const { loadCommands } = require('./handlers/CommandHandler');
 const { loadComponents } = require('./handlers/ComponentHandler');
 
 /* Client Login */
-client.login(process.env.TOKEN)
+client.login(client.config.token)
 .then(() => {
     /* Start Handler */
     loadEvents(client);
