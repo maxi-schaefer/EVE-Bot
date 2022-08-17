@@ -25,7 +25,7 @@ npm install
 ```json
 {
     "token": "DISCORD BOT TOKEN",
-    "color": "#95ce4a",
+    "color": "#34a6ef",
     "developerGuild": "GUILD ID",
     "database": "MONGO-DB LINK",
     "supportServer": "DISCORD INVITE LINK"
