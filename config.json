@@ -1,6 +1,7 @@
 {
+    "token": "DISCORD BOT TOKEN",
     "color": "#95ce4a",
-    "developerGuild": "1003553726092546068",
-    "database": "mongodb://localhost:27017/",
-    "supportServer": "https://discord.gg/ekGSWH3kDh"
+    "developerGuild": "GUILD ID",
+    "database": "MONGO-DB LINK",
+    "supportServer": "DISCORD INVITE LINK"
 }
