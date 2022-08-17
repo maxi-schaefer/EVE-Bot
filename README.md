@@ -1,7 +1,7 @@
 ![](https://images.hdqwalls.com/wallpapers/wall-e-eve-minimal-4k-je.jpg)
 
-# KiWiz-Bot
-KiWiz is the only bot that you need in your discord server, it comes with many features such as a Giveaway System, Music System and much more
+# EVE-Bot
+EVE is the only bot that you need in your discord server, it comes with many features such as a Giveaway System, Music System and much more
 - Released: 15.08.2022
 - [💌 Invite the bot](https://discord.com/api/oauth2/authorize?client_id=955028980770172928&permissions=8&scope=bot%20applications.commands)
 <p align="center">
