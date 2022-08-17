@@ -3,5 +3,10 @@
     "color": "#95ce4a",
     "developerGuild": "GUILD ID",
     "database": "MONGO-DB LINK",
-    "supportServer": "DISCORD INVITE LINK"
+    "supportServer": "DISCORD INVITE LINK",
+    "activityInterval": 5,
+    "activities": [
+        "/invite",
+        "created by maxツ#8355"
+    ]
 }
