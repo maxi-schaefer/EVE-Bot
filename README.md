@@ -1,12 +1,12 @@
-![](https://cdn.discordapp.com/icons/1003553726092546068/05f8aea5a8360fc3c11a6a09d1ee2c38.webp?size=512)
+![](https://images.hdqwalls.com/wallpapers/wall-e-eve-minimal-4k-je.jpg)
 
-# KiWiz-Bot
-KiWiz is the only bot that you need in your discord server, it comes with many features such as a Giveaway System, Music System and much more
+# EVE-Bot
+EVE is the only bot that you need in your discord server, it comes with many features such as a Giveaway System, Music System and much more
 - Released: 15.08.2022
-- [💌 Invite the bot](https://discord.com/api/oauth2/authorize?client_id=955028980770172928&permissions=8&scope=bot%20applications.commands)
+- [💌 Invite the bot](https://discord.com/api/oauth2/authorize?client_id=1009480009821474936&permissions=8&scope=bot%20applications.commands)
 <p align="center">
-	<a href="https://discord.gg/ekGSWH3kDh">
-		<img src="https://canary.discordapp.com/api/guilds/1003553726092546068/embed.png" alt="Discord server">
+	<a href="https://discord.gg/yVWygKS3XN">
+		<img src="https://canary.discordapp.com/api/guilds/999373116918743100/embed.png" alt="Discord server">
 	</a>
 </p>
 
@@ -14,8 +14,8 @@ KiWiz is the only bot that you need in your discord server, it comes with many f
 
 1. Start cloning the repository and installing the dependencies.
 ```bash
-git clone https://github.com/gokiimax/KiWiz-Bot.git
-cd KiWiz-Bot
+git clone https://github.com/gokiimax/EVE-Bot.git
+cd EVE-Bot
 npm install
 ```
 2. Make sure you installed [ffmpeg](https://ffmpeg.org/) (for the music system)
