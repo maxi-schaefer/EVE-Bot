@@ -10,6 +10,32 @@ KiWiz is the only bot that you need in your discord server, it comes with many f
 	</a>
 </p>
 
+## Installation
+
+1. Start cloning the repository and installing the dependencies.
+```bash
+git clone https://github.com/gokiimax/KiWiz-Bot.git
+cd KiWiz-Bot
+npm install
+```
+2. Make sure you installed [ffmpeg](https://ffmpeg.org/) (for the music system)
+3. Create a free [MongoDB Database](https://www.mongodb.com/)
+4. Edit your config.json file to your preferences, Create a token on the [Discord Developer Portal](https://discord.com/developers/applications)
+### Config:
+```json
+{
+    "token": "DISCORD BOT TOKEN",
+    "color": "#95ce4a",
+    "developerGuild": "GUILD ID",
+    "database": "MONGO-DB LINK",
+    "supportServer": "DISCORD INVITE LINK"
+}
+```
+5. If you finished to configurate, you can start the bot
+```bash
+npm run start
+```
+
 ## Author
 [gokimax](https://github.com/gokiimax)
 
