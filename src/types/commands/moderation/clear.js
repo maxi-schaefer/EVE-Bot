@@ -3,7 +3,7 @@ const ms = require('ms')
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName("purge")
+    .setName("clear")
     .setDescription("Delete Messages in a channel")
     .addNumberOption(
         option =>

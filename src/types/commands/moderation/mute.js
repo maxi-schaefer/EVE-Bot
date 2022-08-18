@@ -4,7 +4,7 @@ const ms = require('ms')
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName("ducttape")
+    .setName("mute")
     .setDescription("Mute a specific member.")
     .addUserOption(
         option => 

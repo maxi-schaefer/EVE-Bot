@@ -1,0 +1,12 @@
+{
+    "token": "DISCORD BOT TOKEN",
+    "color": "#34a6ef",
+    "developerGuild": "DISCORD GUILD ID",
+    "database": "MONGO-DB Link",
+    "supportServer": "DISCORD INVITE",
+    "activityInterval": 5,
+    "activities": [
+        "/invite | Watching {servercount} Server",
+        "Created by maxツ#8355"
+    ]
+}

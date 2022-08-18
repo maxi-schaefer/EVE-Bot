@@ -12,5 +12,6 @@ module.exports = {
      */
     async execute(interaction, client) {
         interaction.reply(`🏓 **PONG! Api Ping is:** \`${client.ws.ping}ms\``)
-    }
+    },
+    developer: true
 }
