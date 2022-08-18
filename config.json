@@ -1,12 +1,12 @@
 {
-    "token": "MTAwOTQ4MDAwOTgyMTQ3NDkzNg.GJp98x.SUicNakR_afpYvMNT5HUuZlvlLIG-Q1gYr9_2g",
+    "token": "DISCORD BOT TOKEN",
     "color": "#34a6ef",
-    "developerGuild": "999373116918743100",
-    "database": "mongodb+srv://gokimax:m4C4YhbS0kqw6ty1@perplexbot.syuodhu.mongodb.net/?retryWrites=true&w=majority",
-    "supportServer": "https://discord.gg/yVWygKS3Xn",
+    "developerGuild": "DISCORD GUILD ID",
+    "database": "MONGO-DB Link",
+    "supportServer": "DISCORD INVITE",
     "activityInterval": 5,
     "activities": [
         "/invite | Watching {servercount} Server",
-	"created by maxãƒ„#8355"
+        "Created by maxツ#8355"
     ]
 }
