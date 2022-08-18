@@ -5,7 +5,7 @@ EVE is the only bot that you need in your discord server, it comes with many fea
 - Released: 15.08.2022
 - [💌 Invite the bot](https://discord.com/api/oauth2/authorize?client_id=1009480009821474936&permissions=8&scope=bot%20applications.commands)
 <p align="center">
-	<a href="https://discord.gg/yVWygKS3XN">
+	<a href="https://discord.gg/yVWygKS3Xn">
 		<img src="https://canary.discordapp.com/api/guilds/999373116918743100/embed.png" alt="Discord server">
 	</a>
 </p>
@@ -25,7 +25,7 @@ npm install
 ```json
 {
     "token": "DISCORD BOT TOKEN",
-    "color": "#95ce4a",
+    "color": "#34a6ef",
     "developerGuild": "GUILD ID",
     "database": "MONGO-DB LINK",
     "supportServer": "DISCORD INVITE LINK"
