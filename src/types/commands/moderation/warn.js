@@ -79,6 +79,7 @@ module.exports = {
                         .addFields([
                             { name: "Reason", value: reason, inline: true },
                             { name: "Total", value: num.toString(), inline: true },
+                            { name: "Moderator", value: interaction.member, inline: true },
                         ])
                         
                         Target.send({embeds: [UserEmbed]})

@@ -73,7 +73,7 @@ module.exports = {
     .addSubcommand(
         command =>
         command.setName("voice")
-        .setDescription("Setup voice configuration")
+        .setDescription("Setup a join-to-create Channel")
         .addChannelOption(
             channel =>
             channel.setName("channel")
