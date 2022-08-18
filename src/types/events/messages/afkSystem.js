@@ -1,4 +1,4 @@
-const { Message, EmbedBuilder } = require('discord.js')
+const { Message, EmbedBuilder, MessageType } = require('discord.js')
 const DB = require("../../../models/AFKSystem")
 
 module.exports = {
@@ -9,6 +9,7 @@ module.exports = {
      */
     async execute(message, client) {
         if(message.author.bot) return;
+        if(message.guild == null) return;
 
         await DB.deleteOne({GuildID: message.guild.id, UserID: message.author.id});
 

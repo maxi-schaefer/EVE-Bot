@@ -26,7 +26,7 @@ module.exports = {
                     const LeaveEmbed = new EmbedBuilder()
                     .setColor(client.color)
                     .setTitle("🔙 Leave")
-                    .setDescription(`${member} just left the server! We hope they return back soon!`)
+                    .setDescription(`**${member.user.tag}** just left the server! We hope they return back soon!`)
                     .setThumbnail(member.user.displayAvatarURL())
                     .setFooter({text: `We now have ${member.guild.memberCount} members!`, iconURL: member.guild.iconURL()})
 
@@ -35,9 +35,9 @@ module.exports = {
 
                         if(data) {
                             if(data.Message) {
-                                LeaveEmbed.setDescription(data.Message.replace("{user}", member).replace("{server}", member.guild.name))
+                                LeaveEmbed.setDescription(data.Message.replace("{user}", member.user.tag).replace("{server}", member.guild.name))
                             } else {
-                                LeaveEmbed.setDescription(`${member} joined the server! Welcome to **${member.guild.name}**!`)
+                                LeaveEmbed.setDescription(`**${member.user.tag}** just left the server! We hope they return back soon!`)
                             }
 
                             if(data.ChannelID) {

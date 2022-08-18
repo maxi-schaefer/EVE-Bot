@@ -6,5 +6,6 @@ module.exports = model("Features", new Schema({
     },
     Welcome: Boolean,
     Leave: Boolean,
-    Logs: Boolean
+    Logs: Boolean,
+    CaptchaSystem: Boolean,
 }))

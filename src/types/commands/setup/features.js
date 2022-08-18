@@ -13,6 +13,7 @@ module.exports = {
             { name: "👋 Welcome Greetings", value: "wgreetings" },
             { name: "👋 Leave Greetings", value: "lgreetings" },
             { name: "📖 Logs", value: "logs" },
+            { name: "🤖 Catpcha", value: "captcha" },
         ).setRequired(true))
     .addStringOption(
         option =>
@@ -69,6 +70,14 @@ module.exports = {
                         return interaction.reply({embeds: [Response]})
                     } break;
 
+                    /* Captcha */
+                    case "captcha": {
+                        await featuresDB.findOneAndUpdate({ GuildID: guild.id }, { CaptchaSystem: true }, { new: true, upsert: true });
+
+                        Response.setDescription("🟢 Turned Captcha ``ON``")
+                        return interaction.reply({embeds: [Response]})
+                    } break;
+
                 }
 
             } break;
@@ -101,6 +110,14 @@ module.exports = {
                         return interaction.reply({embeds: [Response]})
                     } break;
                     
+
+                    /* Captcha */
+                    case "captcha": {
+                        await featuresDB.findOneAndUpdate({ GuildID: guild.id }, { CaptchaSystem: false }, { new: true, upsert: true });
+
+                        Response.setDescription("🔴 Turned Captcha ``OFF``")
+                        return interaction.reply({embeds: [Response]})
+                    } break;
                 }
 
             } break;

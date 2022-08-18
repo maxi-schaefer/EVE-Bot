@@ -1,7 +1,7 @@
 const { Client } = require('discord.js');
 
 module.exports = {
-    name: "guildCreate",
+    name: "guildDelete",
     rest: false,
     once: false,
     /**

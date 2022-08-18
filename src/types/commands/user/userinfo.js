@@ -2,7 +2,7 @@ const { Client, ContextMenuCommandBuilder, UserContextMenuCommandInteraction, Em
 
 module.exports = {
     data: new ContextMenuCommandBuilder()
-    .setName('userinfo')
+    .setName('Userinfo')
     .setDMPermission(false)
     .setType(ApplicationCommandType.User),
     /**

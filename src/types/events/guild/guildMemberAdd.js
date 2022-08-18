@@ -16,13 +16,13 @@ module.exports = {
         const { guild } = member;
         
         /* Welcome Greetings */
-        featuresDB.findOne({ GuildID: member.guild.id }, (err, data) => {
+        featuresDB.findOne({ GuildID: member.guild.id }, (err, feature_data) => {
             if(err) throw err;
 
-            if(!data) return;
+            if(!feature_data) return;
 
-            if(data) {
-                if(data.Welcome) {
+            if(feature_data) {
+                if(feature_data.Welcome) {
                     const WelcomeEmbed = new EmbedBuilder()
                     .setColor(client.color)
                     .setTitle("👋 Welcome")
@@ -48,8 +48,10 @@ module.exports = {
                             }
 
                             if(data.RoleID) {
-                                const role = guild.roles.cache.find(role => role.id === data.RoleID);
-                                member.roles.add(role);
+                                if(!feature_data.CaptchaSystem) {
+                                    const role = guild.roles.cache.find(role => role.id === data.RoleID);
+                                    member.roles.add(role);
+                                }
                             }
                         } else {
                             guild.systemChannel.send({embeds: [WelcomeEmbed]});  
