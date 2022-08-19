@@ -19,6 +19,7 @@ module.exports = {
             { name: 'haas', value: 'karaoke'},
             { name: 'mcompand', value: 'mcompand'},
             { name: 'nightcore', value: 'nightcore'},
+            { name: 'reverse', value: 'reverse'},
         )
     )
     .setDMPermission(false),

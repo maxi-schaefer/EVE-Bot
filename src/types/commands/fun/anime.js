@@ -32,7 +32,7 @@ module.exports = {
             get(option).then(mat => {
                 const Embed = new EmbedBuilder()
                 .setTitle(mat.data[0].attributes.titles.en_jp)
-                .setURL(`https://kitsu.io/${mat.data[0].id}`)
+                .setURL(`https://kitsu.io/anime/${mat.data[0].id}`)
                 .setDescription(mat.data[0].attributes.synopsis)
                 .setColor(client.color)
                 .addFields([

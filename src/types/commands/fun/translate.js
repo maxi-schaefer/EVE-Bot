@@ -34,36 +34,37 @@ module.exports = {
         switch (language) {
             case "english": {
                 const translated = await translate(text, { to: 'en' })
-                send_translated(text, translated.text, interaction, client)
+                send_translated(text, translated.text, interaction, client, "English")
             }
             break;
 
             case "german": {
                 const translated = await translate(text, { to: 'de' })
-                send_translated(text, translated.text, interaction, client)
+                send_translated(text, translated.text, interaction, client, "German")
             }
             break;
 
             case "french": {
                 const translated = await translate(text, { to: 'fr' })
-                send_translated(text, translated.text, interaction, client)
+                send_translated(text, translated.text, interaction, client, "French")
             }
             break;
 
             case "russian": {
                 const translated = await translate(text, { to: 'ru' })
-                send_translated(text, translated.text, interaction, client)
+                send_translated(text, translated.text, interaction, client, "Russian")
             }
             break;
         }
     }
 }
 
-function send_translated(text, translated, interaction, client) {
+function send_translated(text, translated, interaction, client, language) {
     const Response = new EmbedBuilder()
     .setColor(client.color)
     .setTitle("🌍 Translator")
     .addFields(
+        { name: "Language", value: language, inline: false },
         { name: "Message:", value: text, inline: true},
         { name: "Translated:", value: translated, inline: true}
     ).setFooter({text: `Requested by ${interaction.member.user.tag}`, iconURL: interaction.member.user.displayAvatarURL()})
