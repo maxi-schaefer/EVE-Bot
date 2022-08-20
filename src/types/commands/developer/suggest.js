@@ -18,7 +18,13 @@ module.exports = {
     .addStringOption(
         option =>
         option.setName('suggestion')
+        .setDescription('Your suggestion')
+        .setRequired(true))
+    .addStringOption(
+        option =>
+        option.setName('description')
         .setDescription('Describe your suggestion.')
+        .setMinLength(20)
         .setRequired(true)),
     developer: true,
     /**
@@ -29,13 +35,15 @@ module.exports = {
         const { options, guildId, member, user } = interaction;
 
         const type = options.getString('type')
-        const suggestion = options.getString('suggestion')
+        const suggestion = options.getString('description')
+        const title = options.getString('suggestion')
 
         const Embed = new EmbedBuilder()
         .setColor(client.color)
+        .setTitle(`Suggestion: ${title}`)
+        .setDescription(`\`${suggestion}\``)
         .setAuthor({ name: user.tag, iconURL: user.displayAvatarURL() })
         .addFields([
-            { name: "Suggestion", value: suggestion, inline: false },
             { name: "Type", value: type, inline: true },
             { name: "Status", value: "Pending...", inline: true }
         ])
