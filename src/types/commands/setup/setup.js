@@ -6,6 +6,7 @@ const featuresDB = require('../../../models/Features');
 const voiceDB = require('../../../models/VoiceSystem')
 const logsDB = require('../../../models/ModerationLogs')
 const captchaDB = require('../../../models/CaptchaSystem')
+const confessionDB = require('../../../models/ConfessionSettings');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -34,6 +35,16 @@ module.exports = {
                 { name: "🔴 OFF", value: "off" },
             ).setRequired(true))
     )
+    .addSubcommand(
+        command =>
+        command.setName('confession')
+        .setDescription('Setup the confession system')
+        .addChannelOption(
+            option =>
+            option.setName('channel')
+            .setDescription('The channel you want your confessions to appear')
+            .addChannelTypes(ChannelType.GuildText)
+            .setRequired(true)))
     .addSubcommand(
         command => 
         command.setName("welcome")
@@ -284,6 +295,18 @@ module.exports = {
                 }
 
             } break;
+
+            /* Confession Settings */
+            case "confession": {
+                await confessionDB.findOneAndUpdate(
+                    {GuildID: guild.id},
+                    {ChannelID: channel.id},
+                    {new: true, upsert: true})
+
+                Response.setDescription(`✅ Successfully set the confession channel to: ${channel}`)
+
+                return interaction.reply({embeds: [Response], ephemeral: true});
+            }
 
             /* Log Settings */
             case "logs": {

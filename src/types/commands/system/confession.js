@@ -1,6 +1,7 @@
 const { Client, SlashCommandBuilder, EmbedBuilder, ChatInputCommandInteraction } = require('discord.js');
-const ms = require('ms');
+
 const db = require('../../../models/ConfessionSystem')
+const settingsDB = require('../../../models/ConfessionSettings')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -81,16 +82,32 @@ module.exports = {
                     { name: 'Confession', value: `\`\`\`${confession}\`\`\`` }
                 ])
 
-                interaction.channel.send({ embeds: [Response] }).then(async msg => {
-                    await db.create(
-                        { GuildID: guild.id, 
-                            ChannelID: msg.channel.id, 
-                            MessageID: msg.id,
-                            MemberID: interaction.member.id
-                    });
-                })
+                settingsDB.findOne({GuildID: guild.id}, async (err, data) => {
+                    if(err) throw err;
 
-                interaction.reply({ content: 'Successfully sent confession!', ephemeral: true})
+                    if(!data) {
+                        interaction.channel.send({ embeds: [Response] }).then(async msg => {
+                            await db.create(
+                                { GuildID: guild.id, 
+                                    ChannelID: msg.channel.id, 
+                                    MessageID: msg.id,
+                                    MemberID: interaction.member.id
+                            });
+                        })
+                    } else {
+                        const channel = guild.channels.cache.get(data.ChannelID)
+                        channel.send({ embeds: [Response] }).then(async msg => {
+                            await db.create(
+                                { GuildID: guild.id, 
+                                    ChannelID: msg.channel.id, 
+                                    MessageID: msg.id,
+                                    MemberID: interaction.member.id
+                            });
+                        })
+                    }
+                });
+
+                interaction.reply({ content: '✅ Successfully sent confession!', ephemeral: true})
             } break;
 
             case "edit": {
