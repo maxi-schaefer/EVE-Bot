@@ -1,36 +1,17 @@
-const { Client } = require('discord.js');
+const { Client, EmbedBuilder, Guild } = require('discord.js');
+const { updateActivity } = require('../../../utils/updatePresence')
 
 module.exports = {
     name: "guildCreate",
     rest: false,
     once: false,
     /**
+     * @param { Guild } guild
      * @param { Client } client
      */
-    async execute(client) {
-        updateActivity(client, client.config.activityInterval);
+    async execute(guild, client) {
+        console.log(`Joined Server ${guild.name}`)
+
+        updateActivity(client, client.config.activityInterval)
     }
 }
-
-/**
- * @param {Client} client
- */
- async function updateActivity(client, interval) {
-  
-    const activities = client.config.activities
-
-    const servercount = client.guilds.cache.size;
-    const usercount = []
-
-    await client.guilds.cache.forEach(guild => {
-      guild.members.cache.forEach(member => {
-        if(member.user.bot) return;
-        usercount.push(member)
-      })
-    })
-  
-    setInterval(() => {
-      const status = activities[Math.floor(Math.random() * activities.length)]
-      client.user.setActivity(status.replace("{servercount}", servercount))
-    }, interval*1000)
-  }

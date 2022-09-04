@@ -105,10 +105,10 @@ module.exports = {
             Target.send({embeds: [new EmbedBuilder()
             .setColor(client.color)
             .setAuthor({name: "🔈 Mute System", iconURL: guild.iconURL()})
-            .setDescription(`You have been duct taped by ${member} in **${guild.name}**\n**Reason:** ${Reason}\n**Duration:** ${Duration}`)
+            .setDescription(`You have been muted by ${member} in **${guild.name}**\n**Reason:** ${Reason}\n**Duration:** ${Duration}`)
         ]}).catch(() => { console.log(`Could not send the mute notice to ${Target.user.tag}.`)})
         
-            Response.setDescription(`Member: ${Target} | \`${Target.id}\` has been **duct taped**\nStaff: ${member} | \`${member.id}\`\nDuration: \`${Duration}\`\nReason: \`${Reason}\` `)
+            Response.setDescription(`Member: ${Target} | \`${Target.id}\` has been **muted**\nStaff: ${member} | \`${member.id}\`\nDuration: \`${Duration}\`\nReason: \`${Reason}\` `)
             interaction.reply({embeds: [Response]});
     
             Target.roles.add(muteRole.id)
@@ -160,10 +160,10 @@ module.exports = {
             Target.send({embeds: [new EmbedBuilder()
             .setColor(client.color)
             .setAuthor({name: "🔈 Mute System", iconURL: guild.iconURL()})
-            .setDescription(`You have been duct taped by ${member} in **${guild.name}**\n**Reason:** ${Reason}\n**Duration:** ${Duration}`)
+            .setDescription(`You have been muted taped by ${member} in **${guild.name}**\n**Reason:** ${Reason}\n**Duration:** ${Duration}`)
         ]}).catch(() => { console.log(`Could not send the mute notice to ${Target.user.tag}.`)})
         
-            Response.setDescription(`Member: ${Target} | \`${Target.id}\` has been **duct taped**\nStaff: ${member} | \`${member.id}\`\nDuration: \`${Duration}\`\nReason: \`${Reason}\` `)
+            Response.setDescription(`Member: ${Target} | \`${Target.id}\` has been **muted**\nStaff: ${member} | \`${member.id}\`\nDuration: \`${Duration}\`\nReason: \`${Reason}\` `)
             interaction.reply({embeds: [Response]});
     
             Target.roles.add(mutedRole.id)

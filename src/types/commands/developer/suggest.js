@@ -27,6 +27,7 @@ module.exports = {
         .setMinLength(20)
         .setRequired(true)),
     developer: true,
+    category: 'developer',
     /**
      * @param {ChatInputCommandInteraction} interaction 
      * @param {Client} client 

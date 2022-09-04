@@ -13,5 +13,6 @@ module.exports = {
     async execute(interaction, client) {
         interaction.reply(`🏓 **PONG! Api Ping is:** \`${client.ws.ping}ms\``)
     },
+    category: 'developer',
     developer: true
 }

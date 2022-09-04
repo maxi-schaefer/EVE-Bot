@@ -30,6 +30,7 @@ client.voiceGenerator = new Collection();
 client.commands = new Collection();
 client.modals = new Collection();
 client.buttons = new Collection();
+client.selectMenus = new Collection();
 
 /* Discord Handler */
 const { loadEvents } = require('./handlers/EventHandler')

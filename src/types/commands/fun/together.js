@@ -22,6 +22,7 @@ module.exports = {
             { name: "📝 Sketch Heads", value: "sketchheads" },
         )
     ),
+    category: 'fun',
     /**
      * 
      * @param {ChatInputCommandInteraction} interaction 

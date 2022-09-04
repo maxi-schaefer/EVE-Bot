@@ -3,7 +3,7 @@ const { Client, SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder }
 module.exports = {
     data: new SlashCommandBuilder()
     .setName("avatar")
-    .setDescription("Get Information about a user!")
+    .setDescription("Get a users avatar!")
     .addUserOption(
         option => 
         option.setName("user")

@@ -52,9 +52,18 @@ module.exports = {
       if(!contextCommand) return;
 
       try {
-        await contextCommand.execute(interaction.client);
+        await contextCommand.execute(interaction, client);
       } catch (error) {
         console.error(error);
+      }
+    } else if(interaction.isSelectMenu()) {
+      const { selectMenus } = client;
+      const menu = selectMenus.get(interaction.customId);
+      if(!menu) return new Error('There is no code for this select menu.')
+      try {
+        await menu.execute(interaction, client);
+      } catch (error) {
+          console.error(error);
       }
     }
 

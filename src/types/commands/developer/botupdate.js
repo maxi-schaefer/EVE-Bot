@@ -9,7 +9,13 @@ module.exports = {
         option =>
         option.setName('update')
         .setDescription('Provide a Update Message')
-        .setRequired(true)),
+        .setRequired(true))
+    .addStringOption(
+        option =>
+        option.setName('preview')
+        .setDescription('Add a picture link!')
+    ),
+    category: 'developer',
     developer: true,
     /**
      * 
@@ -20,6 +26,7 @@ module.exports = {
         const { options } = interaction;
 
         const update = options.getString('update')
+        const preview = options.getString('preview')
 
         const button = new ButtonBuilder()
         .setLabel("Support Server")
@@ -32,6 +39,11 @@ module.exports = {
         .setDescription(`**Changelog**: \n${update}`)
         .setTimestamp(Date.now())
         .setColor(client.color)
+
+        if(preview) {
+            if(isValidHttpUrl(preview)) UpdateEmbed.setImage(preview)
+            else return;
+        }
 
         const guilds = client.guilds.cache
         guilds.forEach(guild => {
@@ -57,4 +69,16 @@ module.exports = {
             ]
         })
     }
+}
+
+function isValidHttpUrl(string) {
+    let url;
+
+    try {
+        url = new URL(string);
+    } catch (_) {
+        return false
+    }
+
+    return url.protocol === "https:" || url.protocol === "http:";
 }

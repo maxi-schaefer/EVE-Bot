@@ -1,12 +1,13 @@
 {
-    "token": "DISCORD BOT TOKEN",
+    "token": "OTkwMzEzMzMzMDM3MDgwNjQ3.GwpyEx.1C1f8h1_wSvUtB8gNaPbffo42psm9QS5I6DBRY",
     "color": "#34a6ef",
-    "developerGuild": "DISCORD GUILD ID",
-    "database": "MONGO-DB Link",
-    "supportServer": "DISCORD INVITE",
+    "developerGuild": "996089645442007182",
+    "guildUpdate": "1014665301364838502",
+    "database": "mongodb://localhost:27017/",
+    "supportServer": "",
     "activityInterval": 5,
     "activities": [
-        "/invite | Watching {servercount} Server",
-        "Created by maxツ#8355"
+            "Watching {servercount} Server",
+            "/invite"
     ]
 }

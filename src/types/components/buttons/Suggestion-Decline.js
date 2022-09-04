@@ -22,7 +22,7 @@ module.exports = {
             const Embed = message.embeds[0]
             if(!Embed) return;
 
-            Embed.fields[2] = { name: "Status", value: "❌ Declined", inline: true }
+            Embed.fields[1] = { name: "Status", value: "❌ Declined", inline: true }
             Embed.color == 0xd93d3d;
             message.edit({ embeds: [Embed], components: []});
             interaction.reply({content: "Suggestion ❌ Declined", ephemeral: true});

@@ -8,4 +8,8 @@ module.exports = model("Features", new Schema({
     Leave: Boolean,
     Logs: Boolean,
     CaptchaSystem: Boolean,
+    ConfessionSystem: Boolean,
+    AutoModSystem: Boolean,
+    LevelSystem: Boolean,
+    EconomySystem: Boolean,
 }))

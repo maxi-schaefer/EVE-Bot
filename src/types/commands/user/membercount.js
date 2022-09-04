@@ -16,6 +16,7 @@ module.exports = {
         const Embed = new EmbedBuilder()
         .setTitle('👥 Membercount')
         .setDescription(`We have ${membercount} members!`)
+        .setColor(client.color)
         .setTimestamp(Date.now());
 
         interaction.reply({embeds: [Embed]});

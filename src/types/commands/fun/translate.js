@@ -19,7 +19,11 @@ module.exports = {
             { name: "German", value: "german"},
             { name: "French", value: "french"},
             { name: "Russian", value: "russian"},
+            { name: "Portuguese", value: "portuguese"},
+            { name: "Turkish", value: "turkish"},
+            { name: "Japanese", value: "japanese"},
         ).setRequired(true)),
+        category: 'fun',
         /**
      * 
      * @param {ChatInputCommandInteraction} interaction 
@@ -55,6 +59,26 @@ module.exports = {
                 send_translated(text, translated.text, interaction, client, "Russian")
             }
             break;
+
+            case "portuguese": {
+                const translated = await translate(text, { to: 'pt' });
+                send_translated(text, translated.text, interaction, client, "Portuguese")
+            } break;
+
+            case "turkish": {
+                const translated = await translate(text, { to: 'tr' });
+                send_translated(text, translated.text, interaction, client, "Turkish")
+            } break;
+
+            case "japanese": {
+                const translated = await translate(text, { to: 'ja' });
+                send_translated(text, translated.text, interaction, client, "Japanese")
+            } break;
+
+            case "greek": {
+                const translated = await translate(text, { to: 'el' });
+                send_translated(text, translated.text, interaction, client, "Greek")
+            } break;
         }
     }
 }

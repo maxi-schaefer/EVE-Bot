@@ -5,6 +5,7 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName("meme")
     .setDescription("Sends an epic meme"),
+    category: 'fun',
     /**
      * @param {ChatInputCommandInteraction} interaction 
      * @param {Client} client 

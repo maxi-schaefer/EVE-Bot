@@ -10,6 +10,7 @@ module.exports = {
         option.setName('name')
         .setDescription('The name of the anime')
         .setRequired(true)),
+    category: 'fun',
     /**
      * @param {ChatInputCommandInteraction} interaction 
      * @param {Client} client 

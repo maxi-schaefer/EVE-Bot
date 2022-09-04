@@ -41,7 +41,7 @@ module.exports = {
                             }
 
                             if(data.ChannelID) {
-                                const channel = guild.channels.cache.find(channel => channel.id === data.ChannelID);
+                                const channel = guild.channels.cache.get(data.ChannelID);
                                 await channel.send({ embeds: [WelcomeEmbed] })
                             } else {
                                 await guild.systemChannel.send({embeds: [WelcomeEmbed]}); 

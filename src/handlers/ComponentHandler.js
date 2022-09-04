@@ -12,7 +12,7 @@ function loadComponents(client) {
     for (const folder of componentFolder) {
         const componentFiles = fs.readdirSync(`./src/types/components/${folder}`).filter(file => file.endsWith('.js'));
 
-        const { modals, buttons } = client;
+        const { modals, buttons, selectMenus } = client;
         switch (folder) {
             case "buttons": {
                 for (const file of componentFiles) {
@@ -31,6 +31,14 @@ function loadComponents(client) {
                 }
             }
             break;
+
+            case "selectMenus": {
+                for (const file of componentFiles) {
+                    const selectMenu = require(`../types/components/${folder}/${file}`);
+                    selectMenus.set(selectMenu.data.name, selectMenu);
+                    table.addRow(file, "selectMenu", "✅")
+                }
+            } break;
         
             default:
                 break;
