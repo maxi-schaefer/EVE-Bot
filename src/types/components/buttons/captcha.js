@@ -36,26 +36,21 @@ module.exports = {
                     
                     const captchaEmbed = new EmbedBuilder()
                     .setColor(client.color)
-                    .setAuthor({ name: interaction.member.user.tag, iconURL: interaction.member.user.displayAvatarURL() })
-                    .setDescription("Please complete this captcha within 1 minute!")
+                    .setTitle("<:captcha:1017764058130284584> Hello! Are you human? Let's find out!")
+                    .setDescription("``Please type the captcha below to be able to access this server!``")
                     .setImage('attachment://captcha.png')
-                    .setFooter({ text: `${member.user.username}'s Captcha`, iconURL: member.user.displayAvatarURL() })
+                    .setFooter({ text: `Verification Period: 2 minutes` })
         
                     try {
                         const msg = await interaction.reply({files: [captchaAttachment], embeds: [captchaEmbed], ephemeral: true})
                         msg.interaction.channel.permissionOverwrites.edit(member.id, { SendMessages: true });
-                        
-                        const wrongCaptchaEmbed = new EmbedBuilder()
-                        .setColor('Red')
-                        .setDescription("🚫 Wrong Captcha");
-        
+    
                         const filter_ = (message) => {
                             if(message.author.id !== member.id) return;
-                            if(message.content === captcha.text) {
+                            if(message.content.toUpperCase() === captcha.text) {
                                 return true;
                             } else {
-                                member.send({embeds: [wrongCaptchaEmbed]})
-                                message.delete();
+                                return false;
                             }
                         }
         
@@ -63,7 +58,7 @@ module.exports = {
                             const response = await msg.interaction.channel.awaitMessages({
                                 filter: filter_,
                                 max: 1,
-                                time: 60*1000,
+                                time: 2*60*1000,
                                 errors: ["time"]});
         
                             if(response) {
@@ -77,11 +72,15 @@ module.exports = {
                                     } catch (error) {}
 
                                     const verifiedEmbed = new EmbedBuilder()
-                                    .setColor('Green')
-                                    .setDescription(`✅ You have been successfully verified in \`\`${interaction.guild.name}\`\`!`)
+                                    .setTitle("You have been verified!")
+                                    .setColor(0x4cb861)
+                                    .setDescription(`<:success:1017762669559816222>  You passed the verification successfully! You can now access \`\`${interaction.guild.name}\`\`!`)
 
                                     member.user.send({ embeds: [verifiedEmbed] }).then(() => {
                                         msg.interaction.channel.permissionOverwrites.delete(member.id);
+                                        msg.interaction.channel.messages.cache.forEach((message) => {
+                                            if(!message.author.bot) message.delete().catch(err => console.log("Nothing"));
+                                        })
                                         response.forEach(RMessage => {
                                             RMessage.delete();
                                         })
@@ -89,6 +88,7 @@ module.exports = {
                                 })
                             } else {
                                 member.user.send("`❌ You didn't verify!`");
+                                member.kick("Couldn't Verify")
                                 msg.interaction.channel.permissionOverwrites.edit(member.id, { SendMessages: false });
                             }
         

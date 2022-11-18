@@ -13,8 +13,8 @@ module.exports = {
      */
     async execute(member, client) {
 
-        const { guild } = member;
-        
+        const { guild } = member;   
+
         /* Welcome Greetings */
         featuresDB.findOne({ GuildID: member.guild.id }, (err, feature_data) => {
             if(err) throw err;

@@ -1,4 +1,5 @@
 const { Client, SlashCommandBuilder, EmbedBuilder, ChatInputCommandInteraction, PermissionFlagsBits } = require('discord.js')
+const sourcebin = require('sourcebin')
 
 const chatfilterDB = require('../../../models/ChatFilter')
 const featuresDB = require('../../../models/Features')
@@ -9,6 +10,9 @@ module.exports = {
     .setDescription('Add/Remove words from the chatfilter')
     .setDMPermission(false)
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+    .addSubcommand(
+        command => command.setName('list').setDescription('List all filtered Words!')
+    )
     .addSubcommand(
         command =>
         command.setName('configure')
@@ -47,11 +51,31 @@ module.exports = {
 
         const Subs = options.getSubcommand();
 
-        featuresDB.findOne({ GuildID: guild.id }, (err, sysdata) => {
+        featuresDB.findOne({ GuildID: guild.id }, async (err, sysdata) => {
             if(err) throw err;
             if(!sysdata || !sysdata.AutoModSystem) return interaction.reply({ content: '❌ Enable the AutoMod Feature first, just type ``/setup features``', ephemeral: true})
 
             switch(Subs) {
+                case "list": {
+                    const Data = await chatfilterDB.findOne({ GuildID: guild.id })
+                    if(!Data) return interaction.reply({ embeds: [Response.setDescription('There is no blacklist')] });
+
+                    await sourcebin.create([
+                        { 
+                            content: `${Data.Wordlist.map((w) => w).join("\n") || "none"}`,
+                            language: "text"
+                        }
+                    ],
+                    {
+                        title: `${guild.name} | Blacklist`,
+                        description: `${Data.Wordlist.length}`
+                    }).then((bin) => {
+                        return interaction.reply({ embeds: [Response.setDescription(`[Click Here to see all blacklisted Words](${bin.url})`)] })
+                    })
+
+                    /* map(r => r).join(" ") */
+                } break;
+
                 case "configure": {
                     const Words = options.getString('words').toLowerCase().split(",");
                     const Choice = options.getString('option');

@@ -1,13 +1,11 @@
 {
-    "token": "OTkwMzEzMzMzMDM3MDgwNjQ3.GwpyEx.1C1f8h1_wSvUtB8gNaPbffo42psm9QS5I6DBRY",
+    "token": "DISCORD TOKEN",
     "color": "#34a6ef",
-    "developerGuild": "996089645442007182",
-    "guildUpdate": "1014665301364838502",
-    "database": "mongodb://localhost:27017/",
-    "supportServer": "",
-    "activityInterval": 5,
+    "developerGuild": "GUILD ID",
+    "database": "MongoDB Url",
+    "supportServer": "DISCORD Invite Link",
+    "activityInterval": 10,
     "activities": [
-            "Watching {servercount} Server",
-            "/invite"
-    ]
-}
+            "/invite | dsc.gg/eve-bot",
+	    "/help | {servercount} servers"
+    ]}

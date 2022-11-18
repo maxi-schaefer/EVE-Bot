@@ -49,7 +49,7 @@ module.exports = {
         guilds.forEach(guild => {
             const systemChannel = guild.systemChannel
             if(systemChannel) {
-                systemChannel.send({embeds: [UpdateEmbed], components: [new ActionRowBuilder().addComponents(button)]})
+                systemChannel.send({embeds: [UpdateEmbed], components: [new ActionRowBuilder().addComponents(button)]}).catch()
             } else {
                 interaction.reply({
                     embeds: [

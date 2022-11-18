@@ -1,5 +1,6 @@
 const { Client, SlashCommandBuilder, ChatInputCommandInteraction, SelectMenuBuilder, SelectMenuOptionBuilder, ActionRowBuilder, PermissionFlagsBits, EmbedBuilder, PermissionsBitField } = require('discord.js')
 const rolesDB = require('../../../models/ReactionRoles')
+const { isValidHexColor } = require('../../../utils/utils')
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -14,6 +15,7 @@ module.exports = {
         .addStringOption(option => option.setName('title').setDescription('Embed Title').setRequired(true))
         .addStringOption(option => option.setName('description').setDescription('Embed Description').setRequired(true))
         .addStringOption(option => option.setName('image').setDescription('Embed Image'))
+        .addStringOption(option => option.setName('color').setDescription('Embed Color'))
     )
     .addSubcommand(
         command =>
@@ -23,6 +25,7 @@ module.exports = {
         .addStringOption(option => option.setName('title').setDescription('New Title of the Embed').setRequired(true))
         .addStringOption(option => option.setName('description').setDescription('New Description of the Embed').setRequired(true))
         .addStringOption(option => option.setName('image').setDescription('Image of the Embed').setRequired(false))
+        .addStringOption(option => option.setName('color').setDescription('Embed Color'))
     )
     .addSubcommand(
         command =>
@@ -62,6 +65,7 @@ module.exports = {
                 const title = options.getString('title')
                 const description = options.getString('description')
                 const image = options.getString('image')
+                const color = options.getString('color')
                 
                 const Response = new EmbedBuilder()
                 .setTitle(title)
@@ -73,6 +77,11 @@ module.exports = {
                 if(image) {
                     if(!isValidHttpUrl(image)) return interaction.reply({ content: '❌ Image needs to be a valid url', ephemeral: true });
                     else Response.setImage(image)
+                }
+
+                if(color) {
+                    if(!isValidHexColor(color)) return interaction.reply({ content: '❌ Color needs to be a valid hex Color', ephemeral: true });
+                    else Response.setColor(parseInt(color.replace("#", "0x")))
                 }
 
                 interaction.channel.send({ embeds: [Response] }).then(async (msg) => {
@@ -93,6 +102,7 @@ module.exports = {
                 const title = options.getString('title')
                 const description = options.getString('description')
                 const image = options.getString('image');
+                const color = options.getString('color')
 
                 rolesDB.findOne({ GuildID: guild.id, MessageID: message_ID }, async(err, data) => {
                     if(err) throw err;
@@ -107,6 +117,11 @@ module.exports = {
                         if(image) {
                             if(!isValidHttpUrl(image)) return interaction.reply({ content: '❌ Image needs to be a valid url', ephemeral: true });
                             else Response.setImage(image);
+                        }
+
+                        if(color) {
+                            if(!isValidHexColor(color)) return interaction.reply({ content: '❌ Color needs to be a valid hex Color', ephemeral: true });
+                            else Response.setColor(parseInt(color.replace("#", "0x")))
                         }
 
                         msg.edit({ embeds: [Response] });

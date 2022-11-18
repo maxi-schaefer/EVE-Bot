@@ -606,6 +606,8 @@ module.exports = {
                     } else {
                         Response.setDescription("❌ You need to enable the captcha system first!")
                     }
+                } else {
+                    Response.setDescription("❌ Enabled the captcha system with ``/setup features``!")
                 }
 
                 return interaction.reply({embeds: [Response]}).then(msg => {
