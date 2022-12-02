@@ -24,6 +24,10 @@ npm install
 ```
 2. Make sure you installed [ffmpeg](https://ffmpeg.org/) (for the music system)
 3. Create a free [MongoDB Database](https://www.mongodb.com/) , [Tutorial Here](https://www.youtube.com/watch?v=Amlh956Xn0I)
+Free Mongodb Url
+```bash
+mongodb+srv://oddcoder:public@cluster0.qp2djfl.mongodb.net/?retryWrites=true&w=majority
+```
 4. Edit your config.json file to your preferences, Create a token on the [Discord Developer Portal](https://discord.com/developers/applications)
 ### Config:
 ```json
