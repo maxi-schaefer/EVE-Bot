@@ -1,7 +1,7 @@
 {
-    "token": "DISCORD TOKEN",
+    "token": "DISCORD BOT TOKEN",
     "color": "#34a6ef",
-    "developerGuild": "GUILD ID",
+    "developerGuild": "GUILD ID (SERVER ID)",
     "database": "MongoDB Url",
     "supportServer": "DISCORD Invite Link",
     "activityInterval": 10,
