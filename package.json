@@ -57,8 +57,4 @@
 		"url": "https://github.com/gokiimax/EVE-Bot/issues"
 	},
 	"homepage": "https://github.com/gokiimax/EVE-Bot#readme",
-	"engines": {
-		"node": ">=16.6.0",
-		"npm": ">=7.0.0"
-}
 }
