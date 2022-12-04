@@ -64,6 +64,21 @@ You can use Glitch too for this project, featured with its code editor.
 npm install -g npm@latest
                   ```Into Your Terminal
 8. Type `refresh`, and track the process from **Logs**
+9. Type `npm install`
+10. Type `npm install express`
+11. go to src/bot.js
+12. Put this code on the first line
+```bash
+const express = require('express')
+const app = express();
+const port = 6969
+
+app.get('/', (req, res) => res.send('Odd is better.'))
+
+app.listen(port, () =>
+console.log(`Your app is listening a http://localhost:${port}`)
+);
+```
 
 <a href="https://glitch.com/edit/#!/import/github/Clytage/rawon"><img src="https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg" alt="Remix on Glitch"></a>
 
