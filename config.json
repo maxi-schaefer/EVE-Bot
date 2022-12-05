@@ -3,7 +3,7 @@
     "color": "#34a6ef",
     "developerGuild": "GUILD ID (SERVER ID)",
     "database": "MongoDB Url",
-    "supportServer": "DISCORD Invite Link",
+    "supportServer": "Discord Invite Link",
     "activityInterval": 10,
     "activities": [
             "/invite | dsc.gg/eve-bot",
