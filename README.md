@@ -27,7 +27,7 @@ npm install
 
 Free Mongodb Url
 ```bash
-mongodb+srv://oddcoder:public@cluster0.qp2djfl.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://admin:admin@cluster0.l1ualfd.mongodb.net/?retryWrites=true&w=majority
 ```
 4. Edit your config.json file to your preferences, Create a token on the [Discord Developer Portal](https://discord.com/developers/applications)
 ### Config:
